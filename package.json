@@ -1,0 +1,30 @@
+{
+  "name": "socialmedia-app",
+  "version": "1.0.0",
+  "description": "A social media app built using the MERNG stack.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamcmich/socialmedia-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamcmich/socialmedia-app/issues"
+  },
+  "homepage": "https://github.com/jamcmich/socialmedia-app#readme",
+  "dependencies": {
+    "apollo-server": "^3.6.5",
+    "graphql": "^16.3.0",
+    "mongoose": "^6.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
