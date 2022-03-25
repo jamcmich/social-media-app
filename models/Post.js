@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const { model, Schema } = require('mongoose');
 
-const postSchema = new mongoose.Schema({
+const postSchema = new Schema({
 	body: String,
 	username: String,
 	createdAt: String,
@@ -18,9 +18,9 @@ const postSchema = new mongoose.Schema({
 		},
 	],
 	user: {
-		type: mongoose.Schema.Types.ObjectId,
+		type: Schema.Types.ObjectId,
 		ref: 'users',
 	},
 });
 
-export default mongoose.model('Post', postSchema);
+module.exports = model('Post', postSchema);

@@ -1,8 +1,21 @@
-import { ApolloServer } from 'apollo-server';
-import { typeDefs } from './schema/typeDefs.js';
-import { resolvers } from './schema/resolvers.js';
-import mongoose from 'mongoose';
-import { mongodb_uri } from './config.js';
+/**
+ * --- Frameworks ---
+ * 
+ * Apollo Server:
+ *      API for interfacing with data
+ *      https://www.apollographql.com/docs/
+ * 
+ * GraphQL:
+ *      Query language used with the Apollo API
+ *      https://graphql.org/
+ */
+const { ApolloServer } = require('apollo-server');
+const { typeDefs } = require('./graphql/typeDefs');
+const { resolvers } = require('./graphql/resolvers/index')
+
+// MongoDB Atlas
+const mongoose = require('mongoose');
+const { MONGODB_URI } = require('./config');
 
 const server = new ApolloServer({
 	typeDefs,
@@ -10,9 +23,9 @@ const server = new ApolloServer({
 });
 
 mongoose
-	.connect(mongodb_uri, { useNewUrlParser: true })
+	.connect(MONGODB_URI, { useNewUrlParser: true })
 	.then(() => {
-        console.log('MongoDB connected')
+		console.log('MongoDB connected');
 		return server.listen({ port: 5000 });
 	})
 	.then((result) => {

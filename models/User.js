@@ -1,11 +1,10 @@
-import mongoose from 'mongoose';
-import Schema from 'mongoose';
+const { model, Schema } = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
 	username: String,
 	password: String,
 	email: String,
 	createdAt: String,
 });
 
-export { userSchema };
+module.exports = model('User', userSchema);

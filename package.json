@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A social media app built using the MERNG stack.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index.js"
@@ -21,7 +20,9 @@
   "homepage": "https://github.com/jamcmich/socialmedia-app#readme",
   "dependencies": {
     "apollo-server": "^3.6.5",
+    "bcryptjs": "^2.4.3",
     "graphql": "^16.3.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.7"
   },
   "devDependencies": {
