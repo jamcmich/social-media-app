@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { client } from '../apollo/client';
-import { getLaunches } from '../graphql/queries/getLaunches';
+import { getLaunches } from '../apollo/graphql/queries/getLaunches';
 
 import styles from '../styles/Home.module.css';
 
