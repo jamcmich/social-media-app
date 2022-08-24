@@ -1,16 +1,17 @@
 import type { NextPage } from 'next';
+
 import { client } from '../apollo/client';
-import { getLaunches } from '../apollo/graphql/queries/getLaunches';
+import { typeDefs } from '../apollo/graphql/schemas/user';
 
 import styles from '../styles/Home.module.css';
 
-const Home: NextPage = ({ launches }: any) => {
-	console.log(launches);
+const Home: NextPage = ({ users }: any) => {
+	console.log(users);
 
 	return (
 		<div>
-			{launches.map((launch: any) => (
-				<p key={launch.id}>{launch.mission_name}</p>
+			{users.users.data.map((user: any) => (
+				<p key={user.id}>{user.name}</p>
 			))}
 		</div>
 	);
@@ -18,12 +19,12 @@ const Home: NextPage = ({ launches }: any) => {
 
 export async function getStaticProps() {
 	const { data } = await client.query({
-		query: getLaunches,
+		query: typeDefs,
 	});
 
 	return {
 		props: {
-			launches: data.launchesPast,
+			users: data,
 		},
 	};
 }
