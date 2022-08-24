@@ -16,7 +16,6 @@ async function main() {
 	// console.log(data);
 
 	const userData = data.map((user: any) => ({
-		id: user.id,
 		name: user.name,
 		username: user.username,
 		email: user.email,
