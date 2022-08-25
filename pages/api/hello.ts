@@ -1,12 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import fetchData from '../../lib/fetchData';
 
 type ResponseData = {
-	data: object;
+	message: string;
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
-	res.status(200).json({ data: await fetchData() });
+	res.status(200).json({ message: 'Hello World!' });
 }
 

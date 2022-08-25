@@ -1,6 +1,6 @@
 const resolvers = {
 	Query: {
-		users: async (_parent: any, _args: any, context: any) => await context.prisma.user.findMany(),
+		getUsers: async (_parent: any, _args: any, context: any, _info: any) => await context.prisma.user.findMany(),
 	},
 };
 

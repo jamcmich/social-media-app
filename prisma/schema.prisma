@@ -3,23 +3,34 @@
 
 // NOTE: Run 'prisma db push || npm run prisma-push' to sync schema and db every time this file is updated
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+generator client {
+  provider = "prisma-client-js"
+}
+
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  username  String   @unique
-  email     String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  role      Role     @default(USER)
+  id        String   @id
+  email     String?  @unique
+  firstName String?
+  lastName  String?
+  phone     String?
+  img       String?
+  username  String?
+  address   Address?
+}
+
+model Address {
+  street  String?
+  city    String?
+  zipCode String?
+  county  String?
+  country String?
+  user    User?   @relation(fields: [userId], references: [id])
+  userId  String  @unique
 }
 
 enum Role {
