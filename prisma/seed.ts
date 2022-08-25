@@ -1,40 +1,29 @@
+// import PrismaClient constructor
 import { PrismaClient } from '@prisma/client';
 
 import fetchData from '../lib/fetchData';
 
+// instantiate PrismaClient
 const prisma = new PrismaClient({
 	log: ['query', 'info', 'warn', 'error'],
 });
 
+// define async function main() to send queries to database
 async function main() {
-	const {
-		data: {
-			users: { data },
-		},
-	} = await fetchData();
+	const getAllUsers = await prisma.user.findMany();
 
-	// console.log(data);
-
-	const userData = data.map((user: any) => ({
-		name: user.name,
-		username: user.username,
-		email: user.email,
-		role: 'USER',
-	}));
-
-	await prisma.user.deleteMany();
-
-	await prisma.user.createMany({
-		data: userData,
-	});
+	console.log(getAllUsers);
 }
 
+// call function main()
 main()
 	.then(async () => {
+		// close database connection when script terminates
 		await prisma.$disconnect();
 	})
 	.catch(async (e) => {
 		console.error(e);
+		// close database connection when script terminates
 		await prisma.$disconnect();
 		process.exit(1);
 	});
