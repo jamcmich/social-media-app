@@ -1,8 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// NOTE:
-// Run 'prisma db push || npm run prisma-push' to sync schema and db every time this file is updated
+// NOTE: Run 'prisma db push || npm run prisma-push' to sync schema and db every time this file is updated
 
 generator client {
   provider = "prisma-client-js"

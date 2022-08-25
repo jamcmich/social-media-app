@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-import fetchData from '../libs/fetchData';
+import fetchData from '../lib/fetchData';
 
 const prisma = new PrismaClient({
 	log: ['query', 'info', 'warn', 'error'],
