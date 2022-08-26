@@ -21,14 +21,13 @@ model User {
   img       String?
   username  String?
   address   Address?
+  role      Role?    @default(USER)
 }
 
 model Address {
   street  String?
   city    String?
   zipCode String?
-  county  String?
-  country String?
   user    User?   @relation(fields: [userId], references: [id])
   userId  String  @unique
 }

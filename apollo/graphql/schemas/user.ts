@@ -16,8 +16,6 @@ const typeDefs = gql`
 		street: String
 		city: String
 		zipCode: String
-		county: String
-		country: String
 		user: User
 		userId: String
 	}
