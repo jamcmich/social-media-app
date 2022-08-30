@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const typeDefs = gql`
 	type User {
-		id: String
+		id: Int
 		email: String
 		firstName: String
 		lastName: String
@@ -17,11 +17,12 @@ const typeDefs = gql`
 		city: String
 		zipCode: String
 		user: User
-		userId: String
+		userId: Int
 	}
 
 	type Query {
 		users: [User]!
+		addresses: [Address]!
 	}
 `;
 
