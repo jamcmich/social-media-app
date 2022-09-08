@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import {
     firebaseAuth,
     firebaseCreateUserWithEmailAndPassword,
@@ -17,14 +17,26 @@ const SignUpPage: NextPage<any> = () => {
 
     return (
         <div>
+            <h1>Sign Up Page</h1>
+            <p>Sign Up</p>
             <form onSubmit={handleSignUp}>
                 <label>Email</label>
                 <input
-                    onChange={(event) => setEmail(event.target.value)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
                     value={email}
                     type="email"
-                    placeholder={"Email"}
+                    placeholder="Email"
+                    required
                 />
+                <label>Password</label>
+                <input
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                    value={password}
+                    type="password"
+                    placeholder="Password"
+                    required
+                />
+                <input type="submit"/>
             </form>
         </div>
     );

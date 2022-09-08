@@ -1,5 +1,7 @@
 import { NextPage } from "next";
+import Link from "next/link";
 import { ChangeEvent, useState } from "react";
+
 import {
     firebaseAuth,
     firebaseSignInWithEmailAndPassword,
@@ -17,6 +19,8 @@ const LoginPage: NextPage<any> = () => {
 
     return (
         <div>
+            <h1>Login Page</h1>
+            <p>Login</p>
             <form onSubmit={handleLogin}>
                 <label>Email</label>
                 <input
@@ -36,6 +40,7 @@ const LoginPage: NextPage<any> = () => {
                 />
                 <input type="submit"/>
             </form>
+            <p><Link href="/signup">Sign Up</Link></p>
         </div>
     );
 };
