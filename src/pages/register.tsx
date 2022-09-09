@@ -1,10 +1,13 @@
 import { NextPage } from "next";
 
 import SignUp from "../components/Forms/SignUp";
+import styles from "../styles/register.module.css";
 
 const Registration: NextPage<any> = () => {
     return (
-        <SignUp/>
+        <div className={styles.container}>
+            <SignUp/>
+        </div>
     );
 };
 
