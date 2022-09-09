@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from "react";
 import {
     firebaseAuth,
     firebaseSignInWithEmailAndPassword,
-} from "../firebase/authentication";
+} from "../../firebase/authentication";
 
 const LoginPage: NextPage<any> = () => {
     const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ const LoginPage: NextPage<any> = () => {
                 />
                 <input type="submit"/>
             </form>
-            <p><Link href="/signup">Sign Up</Link></p>
+            <p><Link href="/src/pages/register">Sign Up</Link></p>
         </div>
     );
 };

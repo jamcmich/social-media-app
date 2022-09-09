@@ -2,7 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { gql, useQuery } from '@apollo/client';
 import Image from 'next/image';
 
-import apolloClient from '../apollo/apollo';
+import apolloClient from '../../apollo/apollo';
 import styles from '../styles/Home.module.css';
 
 const GET_ALL_USERS = gql`
