@@ -37,37 +37,48 @@ const SignUp = () => {
                     <p>Join the world&apos;s largest online platform and become a part of the community!</p>
                 </div>
             </div>
+
             <div className={styles.rightColumn}>
                 <h1>Sign Up</h1>
-                <div>
-                    <p>Already have an account?</p>
-                    <p>Log in</p>
-                </div>
-                <form onSubmit={handleSignUp}>
-                    <label>Username</label>
-                    <input
-                        onChange={(event: ChangeEvent<HTMLInputElement>) => setUsername(event.target.value)}
-                        value={username}
-                        type="username"
-                        placeholder="Username"
-                        required
-                    />
-                    <label>Email</label>
-                    <input
-                        onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-                        value={email}
-                        type="email"
-                        placeholder="Email"
-                        required
-                    />
-                    <label>Password</label>
-                    <input
-                        onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
-                        value={password}
-                        type="password"
-                        placeholder="Password"
-                        required
-                    />
+                <p>Already have an account? <span>Log in</span></p>
+
+                <form className={styles.fieldsContainer} onSubmit={handleSignUp}>
+                    <div className={styles.reverseElements}>
+                        <input
+                            id="usernameField"
+                            onChange={(event: ChangeEvent<HTMLInputElement>) => setUsername(event.target.value)}
+                            value={username}
+                            type="username"
+                            placeholder="Create a username"
+                            required
+                        />
+                        <label>Username</label>
+                    </div>
+
+                    <div className={styles.reverseElements}>
+                        <input
+                            id="emailField"
+                            onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                            value={email}
+                            type="email"
+                            placeholder="Enter your email"
+                            required
+                        />
+                        <label>Email</label>
+                    </div>
+
+                    <div className={styles.reverseElements}>
+                        <input
+                            id="passwordField"
+                            onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                            value={password}
+                            type="password"
+                            placeholder="Create a password"
+                            required
+                        />
+                        <label>Password</label>
+                    </div>
+
                     <input type="submit"/>
                 </form>
             </div>
