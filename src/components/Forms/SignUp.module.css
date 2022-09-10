@@ -1,4 +1,5 @@
 .flexContainer {
+    height: 100vh;
     display: flex;
     flex-direction: row;
 }
@@ -7,8 +8,8 @@
     display: flex;
     flex-direction: column;
 
-    width: 814px;
-    padding: 50px 60px;
+    width: 42%;
+    padding: 80px 60px;
     gap: 50px;
 }
 
@@ -26,7 +27,8 @@
 }
 
 .illustrationContainer {
-    padding: 30px;
+    width: 80%;
+    margin: auto;
 }
 
 .headingContainer {
@@ -39,7 +41,7 @@
 
 .headingContainer h2 {
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 3rem;
     line-height: 55px;
     color: var(--thamar-black);
@@ -48,7 +50,7 @@
 .headingContainer p {
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 1.5rem;
     line-height: 45px;
 
     color: var(--stone-cold);
@@ -58,7 +60,7 @@
     display: flex;
     flex-direction: column;
 
-    width: 1106px;
+    width: 58%;
     padding: 90px 170px;
     gap: 30px;
 
@@ -71,7 +73,7 @@
 }
 
 .rightColumn h1 {
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 55px;
 }
 
@@ -92,33 +94,7 @@
     flex-direction: column;
 
     padding: 90px 0;
-    gap: 30px;
-}
-
-.fieldsContainer input {
-    font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 29px;
-    color: var(--bluish-purple);
-
-    background-color: white;
-    border: 2px solid #FFFFFF;
-    border-radius: 10px;
-
-    padding: 20px 30px;
-
-    transition: color 0.4s ease 0.4s, background-color 0.4s ease 0.4s;
-}
-
-.fieldsContainer input:focus-within {
-    color: white;
-    background-color: var(--bluish-purple);
-
-    outline: none;
-
-    transition: color 0.4s ease, background-color 0.4s ease;
+    gap: 20px;
 }
 
 .fieldsContainer label {
@@ -134,16 +110,89 @@
     transition: color 0.4s ease, background-color 0.2s ease, padding 0.4s ease;
 }
 
-.fieldsContainer input:focus-within + label {
-    color: white;
-    background-color: var(--bluish-purple);
-
-    padding: 0 10px;
-    transition: color 0.4s ease 0.4s, background-color 0.2s ease 0.4s, padding 0.4s ease 0.4s;
-}
-
 /* Workaround for selecting `label` elements when focusing `inputs`. */
 .reverseElements {
     display: flex;
     flex-direction: column-reverse;
+}
+
+.customInputElement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    color: var(--bluish-purple);
+    background-color: white;
+
+    padding: 20px 30px;
+    transition: color 0.4s ease 0.4s, background-color 0.2s ease 0.4s;
+}
+
+.customInputElement:focus-within {
+    color: white;
+    background-color: var(--bluish-purple);
+
+    transition: color 0.4s ease, background-color 0.2s ease, padding 0.4s ease;
+}
+
+.customInputElement input {
+    align-self: stretch;
+    flex-grow: 5;
+
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 29px;
+    color: var(--bluish-purple);
+
+    border: 0;
+    background-color: transparent;
+
+    outline: none;
+    transition: color 0.4s ease 0.4s;
+}
+
+.customInputElement:not(:focus-within) input:not(:placeholder-shown) + .svgContainer path {
+    fill: var(--bluish-purple);
+    stroke: var(--bluish-purple);
+}
+
+.customInputElement:focus-within input {
+    color: white;
+    background-color: transparent;
+
+    transition: color 0.4s ease, padding 0.4s ease;
+}
+
+.customInputElement:focus-within + label {
+    color: white;
+    background-color: var(--bluish-purple);
+
+    padding: 0 10px;
+    transition: color 0.4s ease 0.4s, background-color 0.4s ease 0.4s, padding 0.4s ease 0.4s;
+}
+
+.svgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.svgContainer path {
+    fill: rgba(111, 73, 232, 0.54);
+    stroke: rgba(111, 73, 232, 0.54);
+
+    transition: fill 0.2s ease 0.4s, stroke 0.2s ease 0.4s;
+}
+
+.customInputElement:focus-within .svgContainer path {
+    fill: white;
+    stroke: white;
+
+    transition: fill 0.2s ease, stroke 0.2s ease;
 }

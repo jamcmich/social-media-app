@@ -3,7 +3,9 @@ import Image from "next/image";
 
 import { firebaseAuth, firebaseCreateUserWithEmailAndPassword } from "../../../firebase/authentication";
 import AmicusLogo from "../../public/amicus-logo.svg";
+import { Person, Email, Password } from "../Vectors/Icons";
 import RegisterIllustration from "../../public/register-illustration.svg";
+
 import styles from "./SignUp.module.css";
 
 const SignUp = () => {
@@ -29,7 +31,8 @@ const SignUp = () => {
                     <Image
                         src={RegisterIllustration}
                         alt="illustration of people networking"
-                        layout="responsive"/>
+                        layout="responsive"
+                    />
                 </div>
 
                 <div className={styles.headingContainer}>
@@ -44,38 +47,47 @@ const SignUp = () => {
 
                 <form className={styles.fieldsContainer} onSubmit={handleSignUp}>
                     <div className={styles.reverseElements}>
-                        <input
-                            id="usernameField"
-                            onChange={(event: ChangeEvent<HTMLInputElement>) => setUsername(event.target.value)}
-                            value={username}
-                            type="username"
-                            placeholder="Create a username"
-                            required
-                        />
+                        <div className={styles.customInputElement}>
+                            <input
+                                id="usernameField"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => setUsername(event.target.value)}
+                                value={username}
+                                type="username"
+                                placeholder="Create a username"
+                                required
+                            />
+                            <Person/>
+                        </div>
                         <label>Username</label>
                     </div>
 
                     <div className={styles.reverseElements}>
-                        <input
-                            id="emailField"
-                            onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
-                            value={email}
-                            type="email"
-                            placeholder="Enter your email"
-                            required
-                        />
+                        <div className={styles.customInputElement}>
+                            <input
+                                id="emailField"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                                value={email}
+                                type="email"
+                                placeholder="Enter your email"
+                                required
+                            />
+                            <Email/>
+                        </div>
                         <label>Email</label>
                     </div>
 
                     <div className={styles.reverseElements}>
-                        <input
-                            id="passwordField"
-                            onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
-                            value={password}
-                            type="password"
-                            placeholder="Create a password"
-                            required
-                        />
+                        <div className={styles.customInputElement}>
+                            <input
+                                id="passwordField"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                                value={password}
+                                type="password"
+                                placeholder="Create a password"
+                                required
+                            />
+                            <Password/>
+                        </div>
                         <label>Password</label>
                     </div>
 
